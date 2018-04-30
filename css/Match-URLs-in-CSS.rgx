@@ -12,30 +12,61 @@ url\(\s*(['"])?(?!(\)|(data|http(s)*)))(.*)\)
 url\(\s*(['"]?)(.*)\1\s*\)
 url\(\s*('|")(.*)\1\s*\)
 
-
-background-image: url("foo/bar.jpg");
-background-image: url('/asdf/foo/bar.jpg');
-background-image: url("http://remote.com/asdf/foo/bar.jpg");
-background-image: url( "http://remote.com/asdf/foo/bar.jpg" );
-background-image: url('https://remote.com/asdf/foo/bar.jpg');
-background-image: url('http:www');
-background-image: url('http:/');
-url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-url("data:image/gif;base64,");
-url("data:;base64,");
+*/
 
 
-background-image: url(/asdf/foo/bar.jpg);
 
-background-image: url('/asdf/foo/bar.jpg);
-background-image: url(/asdf/foo/bar.jpg');
-background-image: url(http://remote.com/asdf/foo/bar.jpg);
 
-background-image: url('http://remote.com/asdf/foo/bar.jpg");//§
+url('/asdf/fo'o/bar.jpg');
+url('/asdf/f"oo/bar.jpg');
+
+url('/asdf/foo/bar.jpg');
+url("foo/bar.jpg"); 
+url(" n ");
+url(' n ');
+
+url(/asdf/foo/bar.jpg);
+url(../bar.jpg);
+url( bar.jpg );
+
+
+not:
+url(" "/asdf/foo/bar.jpg" ");
+url(""/asdf/foo/bar.jpg"");
+url(' '/asdf/foo/bar.jpg' ');
+url("'/asdf/foo/bar.jpg'");
+url("/asdf/foo/bar.jpg'");
+url("' ");
+url(" ");
+url("");
+url(" ');
+url(' ');
+url( );
+url();
+url("/asdf/foo/bar.jpg');
+url(/asdf/foo/bar.jpg');
+url('/asdf/foo/bar.jpg);
+
+
+url("http://remote.com/asdf/foo/bar.jpg");
+url( "http://remote.com/asdf/foo/bar.jpg" );
+url('https://remote.com/asdf/foo/bar.jpg');
+url(http://remote.com/asdf/foo/bar.jpg);
+url('http://remote.com/asdf/foo/bar.jpg");
+url('http:www');
+url('http:/');
 
 url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
-
+url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+url("data:image/gif;base64,");
+url('data:image/gif;base64,");
+url("'data:image/gif;base64,'");
+url("data:;base64,");
+url("data:;base64,');
+url( data:");
+url(data:");
+url( data );
+url(data );
+url(data);
 url(data:;base64,);
 
-
-*/
