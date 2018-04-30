@@ -3,4 +3,31 @@
 
 /*
 url\(\s*('|")(.*)\1\s*\)
+
+
+background-image: url("foo/bar.jpg");
+background-image: url('/asdf/foo/bar.jpg');
+background-image: url("http://remote.com/asdf/foo/bar.jpg");
+background-image: url( "http://remote.com/asdf/foo/bar.jpg" );
+background-image: url('https://remote.com/asdf/foo/bar.jpg');
+background-image: url('http:www');
+background-image: url('http:/');
+url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+url("data:image/gif;base64,");
+url("data:;base64,");
+
+
+background-image: url(/asdf/foo/bar.jpg);
+
+background-image: url('/asdf/foo/bar.jpg);
+background-image: url(/asdf/foo/bar.jpg');
+background-image: url(http://remote.com/asdf/foo/bar.jpg);
+
+background-image: url('http://remote.com/asdf/foo/bar.jpg");//§
+
+url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+
+url(data:;base64,);
+
+
 */
