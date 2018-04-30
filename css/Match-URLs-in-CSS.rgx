@@ -1,35 +1,29 @@
-url\(\s*(("(?!(['"]+))(?!(((data|http(s)*):)|\s*"))[^'"]*")|('(?!(['"]+))(?!(((data|http(s)*):)|\s*'))[^'"]*')|((?!(['"\s]+))(?!(((data|http(s)*):)|\s*')).*[^'"]))\)
+/url\(\s*(("(?!(['"]+))(?!(((data|http(s)*):)|\s*"))[^'"]*")|('(?!(['"]+))(?!(((data[^.:]|data|http(s)*):)|\s*'))[^'"]*')|((?!(['"\s]+))(?!(data[^.:]|((data|http(s)*):)|\s*')).*[^'"]))\s*\)/g
 
-/*
-url\(\s*(("(?!(['"]))(?!(((data|http(s)*):)|\s*")).*[^'"]")|('(?!(['"]))(?!(((data|http(s)*):)|\s*')).*[^'"]'))\)
-url\(\s*(("(?!(['"]))(?!(((data|http(s)*):)|\s*")).*[^'"]")|('(?!(((data|http(s)*):)|\s*')).*'))\)
-url\(\s*(("(?!(((data|http(s)*):)|\s*")).*)|('(?!(((data|http(s)*):)|\s*')).*'))\)
-url\(\s*(("(?!(((data|http(s)*):)|")).*"))\)
-url\(\s*'(?!(\)|(data|http(s)*|\s+)))(.*)'\)
-url\(\s*(([^'"](?!(?:data|http(s)*):)([^'"]*))|('(?!(?:data|http(s)*):)(.*)')|("(?!(?:data|http(s)*):)(.*)"))\s*\)
-url\(\s*(['"])?(?!(\)|(data|http(s)*)))(.*)\)
-url\(\s*(['"]?)(.*)\1\s*\)
-url\(\s*('|")(.*)\1\s*\)
-
-*/
-
-
-
-
-url('/asdf/fo'o/bar.jpg');
-url('/asdf/f"oo/bar.jpg');
-
+#match:
 url('/asdf/foo/bar.jpg');
 url("foo/bar.jpg"); 
+url(' /asdf/foo/bar.jpg ');
+url(" foo/bar.jpg "); 
 url(" n ");
 url(' n ');
-
 url(/asdf/foo/bar.jpg);
 url(../bar.jpg);
 url( bar.jpg );
+url( "data.jpg" );
+url("data.jpg");
+url('data.jpg');
+url( 'data.jpg' );
+url(data.jpg);
+url(' data ');
+url('data' );
+url('data');
 
-
-not:
+#not:
+url('/asdf/fo'o/bar.jpg');
+url('/asdf/f"oo/bar.jpg');
+url("foo/b'ar.jpg"); 
+url("fo"o/bar.jpg"); 
 url(" "/asdf/foo/bar.jpg" ");
 url(""/asdf/foo/bar.jpg"");
 url(' '/asdf/foo/bar.jpg' ');
@@ -54,7 +48,6 @@ url(http://remote.com/asdf/foo/bar.jpg);
 url('http://remote.com/asdf/foo/bar.jpg");
 url('http:www');
 url('http:/');
-
 url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
 url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 url("data:image/gif;base64,");
@@ -67,5 +60,5 @@ url(data:");
 url( data );
 url(data );
 url(data);
+url("data.jpg');
 url(data:;base64,);
-
