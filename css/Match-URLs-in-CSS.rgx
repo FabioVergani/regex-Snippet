@@ -1,6 +1,17 @@
-/url\(\s*(("(?!(['"]+))(?!(((data|http(s)*):)|\s*"))[^'"]*")|('(?!(['"]+))(?!(((data[^.:]|data|http(s)*):)|\s*'))[^'"]*')|((?!(['"\s]+))(?!(data[^.:]|((data|http(s)*):)|\s*')).*[^'"]))\s*\)/g
+/url\(\s*(?:(?:("(?!(['"]+))(?!(((data|http(s)*):)|\s*"))[^'"]*")|(?:('(?!(['"]+))(?!(((data|http(s)*):)|\s*'))[^'"]*'))|(?:((?!(['"\s]+))(?!(((data|http(s)*):)|\s*')).*[^'"]))))\s*\)/g
 
-#match:
+/*
+url\(\s*
+(
+(?:("(?!(['"]+))(?!(((data|http(s)*):)|\s*"))[^'"]*"))|
+(?:('(?!(['"]+))(?!(((data|http(s)*):)|\s*'))[^'"]*'))|
+(?:((?!(['"\s]+))(?!(((data|http(s)*):)|\s*')).*[^'"]))
+)
+\s*\)
+*/
+
+
+match:
 url('/asdf/foo/bar.jpg');
 url("foo/bar.jpg"); 
 url(' /asdf/foo/bar.jpg ');
@@ -18,8 +29,12 @@ url(data.jpg);
 url(' data ');
 url('data' );
 url('data');
+url( data );
+url(data );
+url(data);
 
-#not:
+
+not:
 url('/asdf/fo'o/bar.jpg');
 url('/asdf/f"oo/bar.jpg');
 url("foo/b'ar.jpg"); 
@@ -57,8 +72,6 @@ url("data:;base64,");
 url("data:;base64,');
 url( data:");
 url(data:");
-url( data );
-url(data );
-url(data);
+url(data:);
 url("data.jpg');
 url(data:;base64,);
