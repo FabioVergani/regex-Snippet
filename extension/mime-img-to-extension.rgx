@@ -1,0 +1,13 @@
+image\/(?:x-(?:ms-)?|vnd\.wap\.)?((?:gi|tif)f|(?:jpe|pn|sv)g|ico|(?:w)?(?:(?:eb|bm)p))
+
+    image/gif                             gif;
+    image/jpeg                            jpeg jpg;
+    image/png                             png;
+    image/tiff                            tif tiff;
+
+    image/svg+xml                         svg;
+    image/webp                            webp;
+	 
+    image/vnd.wap.wbmp                    wbmp;
+    image/x-icon                          ico;
+    image/x-ms-bmp                        bmp;
