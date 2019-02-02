@@ -1,0 +1,10 @@
+/^[\u0009\u000A\u00A0\u000D\u000B\u0020]*$/
+/*
+https://codepoints.net/U+
+\u0009 &Tab; HORIZONTAL TABULATION \t
+\u000A &NewLine; LINE FEED (LF) \n
+\u00A0 &nbsp;
+\u000D CARRIAGE RETURN (CR) \r
+\u000B VERTICAL TABULATION \v
+\u0020 SPACE
+*/
