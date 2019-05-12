@@ -1,0 +1,9 @@
+\:\:?(?|not\()?\:?\:?[\w-]+\)?
+
+
+/*
+#a:not(:hover)r.cla
+#a::not(::hover) r.cla
+a:before:hover sss
+*/
+
